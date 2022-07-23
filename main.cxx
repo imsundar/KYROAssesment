@@ -12,8 +12,8 @@ class Project
     vector<Person*>     contributors;
     string              objective; 
     DateDetails         dateInfo;
-	vector<string>      Outcomes; 
-	Status              projectStatus;
+    vector<string>      Outcomes; 
+    Status              projectStatus;
     
     vector<Task*>       tasks; 
     vector<Document*>   docs;     
