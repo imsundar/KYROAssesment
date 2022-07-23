@@ -12,8 +12,8 @@ class Project
     vector<Person*>     contributors;
     string              objective; 
     DateDetails         dateInfo;
-    vector<string>      Outcomes; 
-    Status              projectStatus;
+	vector<string>      Outcomes; 
+	Status              projectStatus;
     
     vector<Task*>       tasks; 
     vector<Document*>   docs;     
@@ -62,22 +62,24 @@ class Project
     }
 
     Document* searchDocument(string fileName) {
-        for(auto& doc : docs)
-        {
-            if(doc->getDocName() == fileName)    
-              return doc; 
-        }
+        //commenting out implementation : 
+        // for(auto& doc : docs)
+        // {
+        //     if(doc->getDocName() == fileName)    
+        //       return doc; 
+        // }
         return nullptr; 
     }
 
 
     Task* searchTask(long taskId)
     {
-        for(auto& task : tasks)
-        {
-            if(task->getTaskId() == taskId)    
-              return task; 
-        }
+        //commenting out implementation : 
+        // for(auto& task : tasks)
+        // {
+        //     if(task->getTaskId() == taskId)    
+        //       return task; 
+        // }
         return nullptr; 
     }   
 
