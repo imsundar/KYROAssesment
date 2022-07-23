@@ -22,7 +22,7 @@ struct Date
 struct DateDetails
 {
     Date expStartDate; 
-	Date expDueDate;
+    Date expDueDate;
     Date actualStartDate; 
     Date completionDate;
 };   
