@@ -29,9 +29,9 @@ struct DateDetails
 
 enum class Status
 {
-  yetToStart, 
-  inProgress,
-  completed
+    yetToStart, 
+    inProgress,
+    completed
 };
 
 enum class Action
@@ -41,6 +41,12 @@ enum class Action
     updateHindranceImpact
 }; 
 
+enum class DocType
+{
+   goals, 
+   standards,
+   otherDocs
+}; 
 
 class Task;
 class Document; 

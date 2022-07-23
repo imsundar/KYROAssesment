@@ -41,7 +41,7 @@ class Project
     void markComplete()
     {
         //update project completion date. 
-        projectStatus = Status::completed; 
+        projectStatus = Status::completed;        
     }
 
     void taskOperation(long taskId = -1)
@@ -70,6 +70,7 @@ class Project
         return nullptr; 
     }
 
+
     Task* searchTask(long taskId)
     {
         for(auto& task : tasks)
@@ -78,6 +79,14 @@ class Project
               return task; 
         }
         return nullptr; 
+    }   
+
+    void showTimeLine()
+    {
+        //displays expected time of completion of all tasks, 
+        //by looping through the tasks  
+
+        //this can also show if the project is ontrack or not       
     }
 
     virtual ~Project() {}
@@ -92,6 +101,7 @@ class Task
     string title, description; 
     DateDetails dateInfo; 
     Task* dependencyTask = nullptr; 
+    Task* requiredForTask = nullptr; 
     vector<string> dependencyResources {};
     vector<long> taggedJiraIssues{}; 
     vector<string> comments {}; 
@@ -105,17 +115,33 @@ class Task
           case Action::updateComments:
           break; 
           case Action::updateDependency:
+          {
+              /*******************************************************************/
+              //IF dependency added, expected date of completion of this task would be 
+              //incremented with expected date of completion of the dependent task.              
+          }
           break;
           case Action::updateHindranceImpact:
-          break; 
+          break;           
           default:
           break;          
         }        
     } 
     void startTask() {}
     void displayTask() {}
-    void markComplete() {}
-    long getTaskId() {return taskId;} 
+    void markComplete() {
+        // if a task is marked complete and if it was a dependency for some other task then time 
+        //frame of the main task should be updated : 
+        if(requiredForTask != nullptr)
+        {
+            //update expected date of completion for the main task. 
+        }
+
+        //If a task is marked as complete before expected date of completion, 
+        //update the actual date of completion 
+    }
+    
+    long getTaskId() {return taskId;}     
 };
 
 class Document
